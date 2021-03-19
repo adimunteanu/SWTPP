@@ -13,6 +13,12 @@ street(frankfurt,koeln,200).
 street(koeln,stuttgart,250).
 street(stuttgart,muenchen,300).
 
+father(anakin, luke).
+father(anakin, leia).
+mother(shmi, anakin).
+grandmother(G, S) :- mother(G, C), (father(C, S); mother(C, S)).
+
+
 directConnection(Start, Ziel, Entfernung) :-
     street(Start, Ziel, Entfernung);
     street(Ziel, Start, Entfernung).

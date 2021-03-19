@@ -25,3 +25,9 @@ oneStopConnection(Start, Ziel, Entfernung) :-
     directConnection(Start, Zwischen, L1),
     directConnection(Zwischen, Ziel, L2),
     L is L1 + L2.
+
+shortestOneStop(Start, Ziel, Via, LK) :-
+    directConnection(Start, Via, L1),
+    directConnection(Via, Ziel, L2),
+    L is L1 + L2,
+    (oneStopConnection(Start, Ziel, Ln), Ln < L).
